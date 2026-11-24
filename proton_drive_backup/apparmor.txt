@@ -1,0 +1,29 @@
+#include <tunables/global>
+
+profile proton_drive_backup flags=(attach_disconnected,mediate_deleted) {
+  #include <abstractions/base>
+  # HA template approach: file access plus constrained execution/network.
+  # Requires actual HAOS audit; backup is also mounted read-only.
+  file,
+  deny /backup/** wl,
+  signal (send) set=(kill,term,int,hup,cont),
+  signal (receive),
+  unix,
+  /sbin/tini ix,
+  /usr/bin/tini ix,
+  /app/run.sh rix,
+  /bin/** ix,
+  /usr/bin/** ix,
+  /usr/libexec/** ix,
+  /usr/local/bin/proton-drive ix,
+  /backup/ r,
+  /backup/** r,
+  /data/ rw,
+  /data/** rwk,
+  /tmp/** rwk,
+
+  network inet stream,
+  network inet6 stream,
+  network inet dgram,
+  network inet6 dgram,
+}

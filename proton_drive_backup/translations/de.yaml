@@ -1,0 +1,13 @@
+configuration:
+  home_assistant_origin:
+    name: Home-Assistant-Adresse
+    description: "Genutzte Browser-Adresse mit Schema und ggf. Port, z. B. https://ha.example.com. Kein Pfad und kein abschließender Schrägstrich."
+  additional_origins:
+    name: Weitere Home-Assistant-Adressen
+    description: "Weitere tatsächlich verwendete Browser-Adressen, ohne Platzhalter oder Zugangsdaten."
+  native_mode:
+    name: Backup-Anbindung
+    description: "Aktivieren, um Proton Drive mit der separaten Integration im Backup-Menü zu nutzen. Änderung erfordert einen App-Neustart."
+  integration_token:
+    name: Kopplungsschlüssel der Integration
+    description: "Zufälliger Schlüssel mit 32–128 Zeichen. Denselben Wert in der Integration hinterlegen. Kein Proton-Passwort; nicht weitergeben."

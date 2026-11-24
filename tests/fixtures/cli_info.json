@@ -1,0 +1,8 @@
+{
+  "uid": "remote-upload-001",
+  "name": "ha-v1--0123456789abcdef0123456789abcdef--20260810T123456Z--nightly-home--aaaaaaaaaaaa.tar",
+  "path": "/my-files/HomeAssistant-Backups/0123456789abcdef0123456789abcdef/backups/ha-v1--0123456789abcdef0123456789abcdef--20260810T123456Z--nightly-home--aaaaaaaaaaaa.tar",
+  "type": "file",
+  "size": 4096,
+  "modified_at": "2026-08-10T12:34:56Z"
+}

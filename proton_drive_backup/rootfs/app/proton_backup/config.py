@@ -1,0 +1,11 @@
+from pathlib import Path
+
+BACKUP_ROOT = Path("/backup")
+DATA_ROOT = Path("/data")
+PRIVATE_ROOT = DATA_ROOT / "private"
+STATE_DB = DATA_ROOT / "state" / "state.sqlite"
+SCAN_INTERVAL_SECONDS = 60
+STABLE_OBSERVATIONS = 2
+RETENTION_COUNT = 14
+PROCESS_TIMEOUT_SECONDS = 7200
+INGRESS_PORT = 8099

@@ -1,0 +1,13 @@
+configuration:
+  home_assistant_origin:
+    name: Home Assistant address
+    description: "Actual browser origin including scheme and port if needed, e.g. https://ha.example.com. No path or trailing slash."
+  additional_origins:
+    name: Additional Home Assistant addresses
+    description: "Other browser origins you actually use, without wildcards or credentials."
+  native_mode:
+    name: Backup integration
+    description: "Enable Proton Drive in the backup menu through the separate integration. Restart the app after changing this option."
+  integration_token:
+    name: Integration pairing key
+    description: "Random key of 32–128 characters. Use the same value in the integration. Not your Proton password; never share it."

@@ -1,0 +1,8 @@
+{
+  "uid": "remote-upload-001",
+  "name": "Nightly Home.tar",
+  "path": "/my-files/HomeAssistant-Backups/0123456789abcdef0123456789abcdef/incoming/11111111111111111111111111111111/Nightly Home.tar",
+  "type": "file",
+  "size": 4096,
+  "modified_at": "2026-08-10T12:34:56Z"
+}

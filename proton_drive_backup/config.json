@@ -1,0 +1,19 @@
+{
+  "name": "Proton Drive Backup",
+  "version": "1.0.0",
+  "slug": "proton_drive_backup",
+  "url": "https://github.com/Fighterbomber001/Proton-drive-4-Homeassistant-App",
+  "description": "Lädt fertige Home-Assistant-Backups sicher zu Proton Drive hoch",
+  "arch": ["amd64"],
+  "startup": "application",
+  "boot": "auto",
+  "init": false,
+  "ingress": true,
+  "ingress_port": 8099,
+  "panel_admin": true,
+  "panel_icon": "mdi:cloud-lock",
+  "map": [{"type": "backup", "read_only": true}],
+  "backup_exclude": ["private/**"],
+  "options": {"additional_origins": [], "native_mode": false, "integration_token": ""},
+  "schema": {"home_assistant_origin": "str", "additional_origins": ["str"], "native_mode": "bool", "integration_token": "password"}
+}

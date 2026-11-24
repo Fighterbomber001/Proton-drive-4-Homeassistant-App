@@ -1,0 +1,8 @@
+{
+  "uid": "remote-upload-001",
+  "name": "unsafe.tar",
+  "path": "/foreign/unsafe.tar",
+  "type": "file",
+  "modified_at": "not-a-timestamp",
+  "unexpected": "field"
+}

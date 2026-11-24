@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Proton Drive Backup</title>
+  <link rel="stylesheet" href="static/app.css">
+  <script src="static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Home Assistant Add-on</p>
+      <h1>Proton Drive Backup</h1>
+      <p class="subtitle">Sicherungen im Blick behalten und gezielt steuern.</p>
+    </div>
+    <p id="overall-status" class="status-badge status-neutral" role="status" aria-live="polite">Status wird geladen</p>
+  </header>
+
+  <main id="main-content">
+    <p id="notice" class="notice" role="status" aria-live="polite" hidden></p>
+
+    <section class="card-grid" aria-label="Sicherungsstatus">
+      <article class="card card-wide">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">Konto</p>
+            <h2>Verbindung</h2>
+          </div>
+          <span id="connection-state" class="state-dot" aria-hidden="true"></span>
+        </div>
+        <p id="connection-status" class="metric">Wird geladen</p>
+        <div class="actions">
+          <button id="connect-button" class="button button-primary" type="button">Mit Proton verbinden</button>
+          <button id="renew-button" class="button" type="button">Anmeldung erneuern</button>
+          <button id="disconnect-button" class="button button-danger" type="button">Verbindung trennen</button>
+        </div>
+        <p id="login-area" class="login-area" hidden>
+          <a id="login-link" rel="noopener noreferrer" target="_blank">Proton-Anmeldung öffnen</a>
+          <span>Dieser Link wird nach kurzer Zeit ausgeblendet.</span>
+        </p>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">Lokal</p>
+        <h2>Scanner</h2>
+        <p id="scanner-status" class="metric">Wird geladen</p>
+        <div class="actions">
+          <button id="scan-button" class="button button-primary" type="button">Jetzt prüfen</button>
+          <button id="restart-button" class="button" type="button">Uploader neu starten</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">Übertragung</p>
+        <h2>Aktiver Upload</h2>
+        <p id="upload-name" class="metric">Kein Upload aktiv</p>
+        <dl class="details">
+          <div><dt>Gestartet</dt><dd id="upload-started">–</dd></div>
+          <div><dt>Prüfsumme</dt><dd id="upload-sha" class="mono">–</dd></div>
+        </dl>
+        <div class="actions">
+          <button id="cancel-button" class="button button-danger" type="button">Upload abbrechen</button>
+          <button id="retry-button" class="button" type="button">Erneut versuchen</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">Warteschlange</p>
+        <h2>Ausstehende Uploads</h2>
+        <p id="queue-size" class="metric metric-large">–</p>
+        <p>Nächster Versuch: <time id="next-retry">–</time></p>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">Verlauf</p>
+        <h2 id="last-success-heading">Sicherungsverlauf</h2>
+        <p class="metric"><span id="last-success">–</span></p>
+        <p id="last-error" class="muted">Kein Fehler gemeldet</p>
+      </article>
+
+      <article class="card card-wide">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">Fehlersuche</p>
+            <h2>Diagnose</h2>
+          </div>
+          <button id="diagnostics-button" class="button" type="button">Diagnose aktualisieren</button>
+        </div>
+        <ol id="diagnostics-list" class="diagnostics-list">
+          <li>Noch keine Diagnose geladen.</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="card remote-card" aria-labelledby="remote-heading">
+      <div class="card-heading">
+        <div>
+          <p class="eyebrow">Proton Drive</p>
+          <h2 id="remote-heading">Letzte Sicherungen</h2>
+        </div>
+        <span>Maximal 14 Einträge</span>
+      </div>
+      <p id="backup-history-note" role="status" hidden></p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Größe</th>
+              <th scope="col" id="remote-date-heading">Sicherungsdatum</th>
+            </tr>
+          </thead>
+          <tbody id="remote-files">
+            <tr><td colspan="3">Status wird geladen.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <footer><small>Unabhängiges Community-Werkzeug. Proton und Proton Drive sind Marken der Proton AG.</small></footer>
+  </main>
+
+  <dialog id="confirm-dialog" aria-labelledby="confirm-title" aria-describedby="confirm-message">
+    <h2 id="confirm-title">Aktion bestätigen</h2>
+    <p id="confirm-message"></p>
+    <div class="actions dialog-actions">
+      <button id="confirm-cancel" class="button" type="button">Zurück</button>
+      <button id="confirm-accept" class="button button-danger" type="button">Bestätigen</button>
+    </div>
+  </dialog>
+</body>
+</html>
